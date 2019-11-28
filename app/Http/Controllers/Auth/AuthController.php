@@ -39,6 +39,7 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -48,12 +49,14 @@ class AuthController extends Controller
         ]);
     }
 
+
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return User
      */
+
     protected function create(array $data)
     {
         return User::create([
@@ -62,4 +65,5 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    
 }
