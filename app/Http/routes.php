@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/test/lst','Test\UserController@lst');
+
+Route::match(['get','post'],'/admin/login','Admin\ManagerController@login');
