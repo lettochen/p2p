@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+ 
+ use validate;
 
 class ManagerController extends Controller
 {
@@ -20,6 +22,16 @@ class ManagerController extends Controller
             return view('Admin.login');
         }elseif ($request->isMethod('post')) {
             # code...
+            $this->validate($request, 
+         [
+        'username' => 'required|min:2|max:16',
+        'password' => 'required|between:4,20',
+        'captcha' => 'required|size:5|captcha',
+         ]);
+            echo "okk ";
+
+
+
         }
 
     }
